@@ -2,9 +2,16 @@ package entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Entity
+@Table(name = "Catalogo")
+@NoArgsConstructor
 @Getter
 @Setter
 public class Prestito {
