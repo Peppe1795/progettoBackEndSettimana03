@@ -3,6 +3,7 @@ package entities;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class Utente {
 	private String nome;
 	private String cognome;
 	private LocalDate dataDiNascita;
+	@Id
 	private long numeroDiTessera;
 
 	public Utente(String nome, String cognome, LocalDate dataDiNascita, long numeroDiTessera) {

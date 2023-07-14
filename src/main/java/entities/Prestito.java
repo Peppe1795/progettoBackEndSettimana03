@@ -1,8 +1,11 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -15,6 +18,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Prestito {
+	@Id
+	@GeneratedValue
+	private UUID idPrestito;
 	private String utente;
 	private Catalogo elementoPrestato;
 	private LocalDate inizioPrestito;
