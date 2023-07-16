@@ -1,34 +1,37 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToMany;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name = "Utente")
-@NoArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
 public class Utente {
 
 	private String nome;
 	private String cognome;
-	private LocalDate dataDiNascita;
-	@Id
-	private long numeroDiTessera;
+	private LocalDate dataNascita;
 
-	public Utente(String nome, String cognome, LocalDate dataDiNascita, long numeroDiTessera) {
-		super();
+	@Id
+	private String numeroTessera;
+
+	@OneToMany(mappedBy = "utente")
+	private Set<Prestito> prestiti;
+
+	public Utente(String nome, String cognome, LocalDate dataNascita, String numeroTessera) {
 		this.nome = nome;
 		this.cognome = cognome;
-		this.dataDiNascita = dataDiNascita;
-		this.numeroDiTessera = numeroDiTessera;
+		this.dataNascita = dataNascita;
+		this.numeroTessera = numeroTessera;
 	}
 
 }
